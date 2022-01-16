@@ -15,6 +15,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
         rel="stylesheet">
+
+    <style>
+        /* width */
+        ::-webkit-scrollbar {
+            width: 17px;
+        }
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px #7c7c7cc2;
+            border-radius: 5px;
+        }
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #4444446b;
+            border-radius: 5px;
+        }
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2195f3b5;
+        }
+    </style>
     
 </head>
 <body>
@@ -24,7 +45,7 @@
             <nav class="header-nav">
                 <ul class="list header-list">
                     <li class="header-item"><a class="link header-link" href="./index.html">Студия</a></li>
-                    <li class="header-item"><a class="link header-link" href="./portfolio.html">Портфолио</a></li>
+                    <li class="header-item"><a class="link header-link current" href="./portfolio.html">Портфолио</a></li>
                     <li class="header-item"><a class="link header-link" href="">Контакты</a></li>
                 </ul>
             </nav>
@@ -57,7 +78,11 @@
                 <ul class="list cards-list">
                     <li class="card">
                         <a class="card-link link" href="">
+                            <div class="card-pic-container">
                             <img class="products-pic" src="./images/portfolio11-min.jpeg" alt="Вид сайта" width="370">
+                            <p class="product-hover-text">Технокряк это современная площадка распространения коронавируса. Компании используют эту платформу для цифрового
+                            шпионажа и атак на защищённые сервера конкурентов.</p>
+                            </div>
                             <div class="card-description">
                                 <h2 class="products-title">Технокряк</h2>
                                 <p class="products-text">Веб-сайт</p>
