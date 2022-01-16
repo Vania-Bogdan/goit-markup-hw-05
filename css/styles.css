@@ -77,7 +77,7 @@ ul {
 }
 
 .header-item {
-  display: block;
+  display: flex;
 }
 
 .header-item:not(:last-child),
@@ -91,8 +91,24 @@ ul {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--titles-color);
+  transition: color 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
+}
+.current {
+  color: var(--accent-color);
+  position: relative;
 }
 
+.current::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  background-color: var(--accent-color);
+  bottom: -32px;
+  left: 0;
+  border-radius: 2px;
+}
 .header-link:hover,
 .header-link:focus {
   color: var(--accent-color);
@@ -107,6 +123,8 @@ ul {
   color: #757575;
   display: flex;
   align-items: center;
+  transition: color 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-mail:hover,
@@ -244,6 +262,34 @@ ul {
   display: flex;
   justify-content: space-between;
 }
+
+.tasks-item {
+  position: relative;
+}
+
+.task-name {
+  position: absolute;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  top: 224px;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: rgba(
+    47,
+    48,
+    58,
+    0.8
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* ------------------------------------TEAM */
 .team {
   background: #f5f4fa;
@@ -316,10 +362,16 @@ ul {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  transition: background-color 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .worker-social-icon {
   fill: #afb1b8;
+  transition: background-color 250ms
+      cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms
+      cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .worker-social-link:hover,
@@ -368,12 +420,16 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: border 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-icon {
   width: 106px;
   height: 60px;
   fill: #afb1b8;
+  transition: fill 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-link:hover,
@@ -487,6 +543,12 @@ ul {
   color: var(--titles-color);
   padding: 6px 22px;
   border-radius: 4px;
+  transition: background 250ms
+      cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms
+      cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms
+      cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-item:hover,
@@ -513,10 +575,13 @@ ul {
 .card {
   margin: 15px;
   box-sizing: border-box;
+  width: 370px;
 }
 
 .card-link {
   display: block;
+  transition: box-shadow 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-link:hover,
@@ -528,12 +593,38 @@ ul {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.card-pic-container {
+  position: relative;
+  overflow: hidden;
+}
+
 .products-pic {
   display: block;
 }
 
+.product-hover-text {
+  width: 100%;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  color: #fff;
+  padding: 63px 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(33, 150, 243, 0.9);
+  transition: transform 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(100%);
+  overflow: auto;
+}
+
+.card-link:hover .product-hover-text {
+  transform: translateY(0);
+}
+
 .card-description {
-  width: 370px;
   margin-top: 0;
   padding: 20px 24px;
   border-left: 1px solid #eeeeee;
@@ -555,4 +646,76 @@ ul {
   line-height: 1.87;
   letter-spacing: 0.03em;
   color: #757575;
+}
+/* -----------------------------------MODAL */
+.backdrop {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 2500ms,
+    visibility 2500ms;
+}
+
+.backdrop.is-hidden .modal {
+  transition: transform 2000ms,
+    background-color 2500ms
+      cubic-bezier(
+        0.3,
+        0.48,
+        0.32,
+        0.98
+      );
+  transform: translate(-50%, -25%)
+    scale(0.2) rotateX(-90deg)
+    perspective(400px);
+  background-color: var(--accent-color);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: transform 2000ms,
+    background-color 2500ms;
+  transform: translate(-50%, -50%)
+    scale(1) rotateX(0deg)
+    perspective(400px);
+  width: 528px;
+  min-height: 581px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 3px
+      rgba(0, 0, 0, 0.12),
+    0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.icon-close {
+  width: 11px;
+  height: 11px;
+  fill: #000;
+}
+
+.modal-close {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 30px;
+  height: 30px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
