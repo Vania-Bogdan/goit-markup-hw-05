@@ -14,7 +14,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
-        rel="stylesheet">    
+        rel="stylesheet">  
+        
+    <style>
+        /* width */
+        ::-webkit-scrollbar {
+            width: 17px;
+        }
+    
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px #7c7c7cc2;
+            border-radius: 5px;
+        }
+    
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #4444446b;
+            border-radius: 5px;
+        }
+    
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2195f3b5;
+        }
+    </style>
+
 </head>
 <body>
     <header class="header-block">
@@ -22,7 +47,7 @@
             <a class="link header-logo" href="./index.html">Web<span style="color:#000000;">Studio</span></a>
             <nav class="header-nav">
                 <ul class="list header-list" >
-                    <li class="header-item"><a class="link header-link" href="./index.html">Студия</a></li>
+                    <li class="header-item"><a class="link header-link current" href="./index.html">Студия</a></li>
                     <li class="header-item"><a class="link header-link" href="./portfolio.html">Портфолио</a></li>
                     <li class="header-item"><a class="link header-link" href="">Контакты</a></li>
                 </ul>
@@ -45,7 +70,7 @@
         <section class="hero">
             <div class="container">
             <h1 class="hero-title"> Эффективные решения для вашего бизнеса</h1>
-            <button type="button" class="hero-btn"><span class="hero-btn-text">Заказать услугу</span></button>
+            <button type="button" class="hero-btn" data-modal-open><span class="hero-btn-text">Заказать услугу</span></button>
             </div>
         </section>
         <section class="skills">
@@ -95,9 +120,9 @@
                 <h2 class="tasks-title">Чем мы занимаемся</h2>
                 <ul class="list tasks-list" >
                     <li class="tasks-item"><img src="./images/webstudio.1.1.jpeg" alt="програмист пишет код" width="370" 
-                    class="tasks-item-pic"></li>
-                    <li class="tasks-item"><img src="./images/webstudio.1.2.jpeg" alt="програмист разрабатывает приложение" width="370" class="tasks-item-pic"></li>
-                    <li class="tasks-item"><img src="./images/webstudio.1.3.jpeg" alt="програмист выбирает цвет" width="370" class="tasks-item-pic"></li>
+                    class="tasks-item-pic"><h3 class="task-name">Десктопные приложения</h3></li>
+                    <li class="tasks-item"><img src="./images/webstudio.1.2.jpeg" alt="програмист разрабатывает приложение" width="370" class="tasks-item-pic"><h3 class="task-name">Мобильные приложения</h3></li>
+                    <li class="tasks-item"><img src="./images/webstudio.1.3.jpeg" alt="програмист выбирает цвет" width="370" class="tasks-item-pic"><h3 class="task-name">Дизайнерские решения</h3></li>
                 </ul>
             </div>
         </section>
@@ -316,5 +341,15 @@
             </div>
         </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button type="button" class="modal-close" data-modal-close>
+                <svg class="icon icon-close">
+                    <use href="./images/icons.svg#icon-X"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <script src="./js/modal.js"></script>
 </body>
 </html>
